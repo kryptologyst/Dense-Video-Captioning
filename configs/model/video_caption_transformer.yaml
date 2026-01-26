@@ -1,0 +1,27 @@
+# @package model
+
+_target_: src.models.video_caption_transformer.VideoCaptionTransformer
+
+# Model architecture
+video_encoder:
+  type: "clip"  # clip, vit, resnet
+  model_name: "ViT-B/32"
+  freeze_weights: true
+  
+text_decoder:
+  type: "gpt2"  # gpt2, t5, bart
+  model_name: "gpt2"
+  max_length: 128
+  
+# Fusion mechanism
+fusion_type: "cross_attention"  # cross_attention, concatenation, bilinear
+fusion_dim: 512
+
+# Training parameters
+dropout: 0.1
+layer_norm_eps: 1e-6
+
+# Model size
+hidden_dim: 512
+num_attention_heads: 8
+num_layers: 6

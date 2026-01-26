@@ -1,0 +1,36 @@
+# @package data
+
+_target_: src.data.video_caption_dataset.VideoCaptionDataset
+
+# Dataset paths
+train_video_dir: "data/train/videos"
+train_annotation_file: "data/train/annotations.json"
+val_video_dir: "data/val/videos"
+val_annotation_file: "data/val/annotations.json"
+test_video_dir: "data/test/videos"
+test_annotation_file: "data/test/annotations.json"
+
+# Video processing
+video_fps: 1.0  # frames per second to extract
+max_frames: 32  # maximum number of frames per video
+frame_size: [224, 224]  # [height, width]
+video_format: "mp4"
+
+# Text processing
+max_caption_length: 128
+min_caption_length: 5
+vocab_size: 50257  # GPT-2 vocab size
+
+# Data augmentation
+use_augmentation: true
+augmentation_prob: 0.5
+augmentation_types:
+  - "horizontal_flip"
+  - "color_jitter"
+  - "random_crop"
+
+# Data loading
+batch_size: 8
+num_workers: 4
+pin_memory: true
+persistent_workers: true

@@ -1,0 +1,19 @@
+# @package evaluation
+
+_target_: src.eval.main.main
+
+# Evaluation parameters
+max_caption_length: 128
+num_beams: 5
+temperature: 1.0
+do_sample: false
+early_stopping: true
+
+# Metrics to calculate
+metrics:
+  - "bleu"
+  - "meteor"
+  - "rouge"
+  - "cider"
+  - "bert_score"
+  - "exact_match"

@@ -1,0 +1,35 @@
+# @package _global_
+
+defaults:
+  - _self_
+  - model: video_caption_transformer
+  - data: video_caption_dataset
+  - training: default_training
+  - evaluation: default_evaluation
+
+# Project settings
+project_name: "dense-video-captioning"
+experiment_name: "video_captioning_experiment"
+seed: 42
+
+# Paths
+data_dir: "data"
+output_dir: "outputs"
+checkpoint_dir: "checkpoints"
+log_dir: "logs"
+asset_dir: "assets"
+
+# Device configuration
+device: "auto"  # auto, cuda, mps, cpu
+mixed_precision: true
+compile_model: false
+
+# Logging
+log_level: "INFO"
+use_wandb: false
+wandb_project: "dense-video-captioning"
+wandb_entity: null
+
+# Reproducibility
+deterministic: true
+benchmark: false
